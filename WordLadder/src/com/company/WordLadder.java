@@ -6,7 +6,15 @@ public class WordLadder {
 
     //Stack<String>a1;
     //Queue<Stack<String>>a2;
-    static int Ladder(Queue<Stack<String>>a1,Set<String>a2,String w2,Vector<String>alpha,int mark) {
+
+    public static Queue<Stack<String>> QueueStackOp(Queue<Stack<String>>q1,String ss){
+        Stack<String> teS=q1.peek();
+        Stack<String>CloneS=(Stack<String>)teS.clone();
+        CloneS.push(ss);
+        q1.offer(CloneS);
+        return q1;
+    }
+    public static int Ladder(Queue<Stack<String>>a1,Set<String>a2,String w2,Vector<String>alpha,int mark) {
         String w1=a1.peek().peek();
         //a2.remove(a1.peek().peek());
         while (a1.size() > 0 && mark != 1)//控制queue中元素的添加与pop
